@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./reset.scss";
+
+.container{
+    width: 1240px;
+    padding: 10px 20px;
+    display: flex;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(212, 212, 212);
+}

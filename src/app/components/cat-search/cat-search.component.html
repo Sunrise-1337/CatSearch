@@ -1,0 +1,32 @@
+<div class="container search">
+    <form [formGroup]="form" class="form" (ngSubmit)="search(form)">
+        <div class="form__breed">
+            <label for="breedId">Breed:</label>
+            <select id="breedId" formControlName="breed" #breed>
+                <option value="">Any</option>
+                <option *ngFor="let breed of breeds" value={{breed.id}}>{{breed.name}}</option>
+            </select>
+        </div>
+        <div class="form__amount">
+            <label for="amountId">Max amount of results</label>
+            <select id="amountId" formControlName="amount" #amount>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+            </select>
+        </div>
+        <button class="form__button" type="submit">Search</button>
+    </form>
+    <div *ngIf="loading" class="loader">
+        <h2>Your request is loading</h2>
+    </div>
+    <div *ngIf="results" class="results">
+        <div class="results__result" *ngFor="let result of results">
+            <img src={{result.url}} alt={{result.id}} class="results__result-img">
+            <h2 class="results__result-header">{{result.id}}</h2>
+            <p class="results__result-para">{{result.width}}x{{result.height}}</p>
+        </div>
+    </div>
+</div>
